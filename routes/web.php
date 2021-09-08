@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'StudentsController@index');
+Route::get('/students', 'StudentsController@create')->name('students.create');
+Route::post('/students', 'StudentsController@store')->name('students.store');
+Route::get('/students/{student}', 'StudentsController@edit')->name('student.edit');
+Route::post('/students/{student}', 'StudentsController@update')->name('student.update');
+Route::delete('/students/{student}', 'StudentsController@destroy')->name('student.destroy');
+
+Route::post('/', 'StudentsController@index')->name('student.index');
+
 
 
